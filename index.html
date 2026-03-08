@@ -26,28 +26,52 @@
       crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
-  <body class="min-h-screen max-w-lg bg-base-200 mx-auto">
-    <div class="logo flex justify-center w-[100] pt-8">
-      <img src="assets/github-logo.png" alt="GitHub Logo Image ">
+  <body class="h-screen overflow-hidden bg-[#eff1f5] flex flex-col items-center justify-center px-4 font-[Geist]">
+    <div class="w-full max-w-[424px] bg-white rounded-t-lg shadow-[0_6px_18px_rgba(15,23,42,0.08)]">
+      <div class="logo flex justify-center pt-8">
+        <img src="assets/github-logo.png" alt="GitHub Logo Image " class="h-[82px] w-[82px] object-contain">
+      </div>
+      <div class="title text-center pt-6 px-7">
+        <h1 class="text-[30px] leading-tight font-bold text-[#1F2937] whitespace-nowrap">GitHub Issues Tracker</h1>
+        <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
+      </div>
+      <!-- login form -->
     </div>
-    <div class="title text-center  pt-6">
-      <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
-      <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
+    <div class="card bg-white w-full max-w-[424px] mx-auto mt-0 rounded-none shadow-none">
+      <div class="card-body px-7 py-5">
+        <fieldset class="fieldset">
+          <label class="label text-black">Username</label>
+          <input type="text"
+            class="input h-11 w-full rounded-md border border-gray-300 bg-white text-base placeholder:text-[#94A3B8]"
+            placeholder="Enter Username" />
+          <a class="link link-hover text-[#4A00FF]">Default: admin</a>
+          <label class="label">Password</label>
+          <input type="password"
+            class="input h-11 w-full rounded-md border border-gray-300 bg-white text-base placeholder:text-[#94A3B8]"
+            placeholder="Enter Password" />
+          <div><a class="link text-[#4A00FF] link-hover">Password:admin123</a></div>
+          <button
+            class="btn btn-neutral rounded-[8px] border-0 bg-[#4A00FF] mt-4 h-11 text-base font-semibold normal-case">Sign
+            in</button>
+        </fieldset>
+      </div>
     </div>
-    <!-- login form -->
-        <div class="card bg-base-100 w-full max-w-sm  shadow-xl mx-auto mt-6">
-          <div class="card-body">
-            <fieldset class="fieldset">
-              <label class="label text-black">Username</label>
-              <input type="text" class="input" placeholder="Enter Username" />
-              <a class="link link-hover text-[#4A00FF]">Default: admin</a>
-              <label class="label">Password</label>
-              <input type="password" class="input" placeholder="Enter Password" />
-              <div><a class="link text-[#4A00FF] link-hover">Password:admin123</a></div>
-              <button class="btn btn-neutral rounded-[8px] bg-[#4A00FF] mt-4">Sign in</button>
-            </fieldset>
-          </div>
-        </div>
+    <div class="w-full max-w-[424px] mx-auto bg-white px-7 flex items-center py-2 text-[#64748B]">
+      <div class="flex-1 border-t border-gray-300"></div>
+      <span class="px-3 text-sm">OR</span>
+      <div class="flex-1 border-t border-gray-300"></div>
+    </div>
+    <p class="w-full max-w-[424px] mx-auto bg-white text-center text-sm text-[#64748B] pt-2 pb-2">Demo Credentials:</p>
+    <div class="w-full max-w-[424px] mx-auto rounded-b-lg bg-white px-7 pb-6 shadow-[0_6px_18px_rgba(15,23,42,0.08)]">
+      <div class="rounded-lg bg-gray-100 px-6 py-5 text-center">
+        <p class="text-[15px]">
+          <span class="font-semibold">Username:</span> admin
+        </p>
+        <p class="text-[15px]">
+          <span class="font-semibold">Password:</span> admin123
+        </p>
+      </div>
+    </div>
 
 
   </body>
