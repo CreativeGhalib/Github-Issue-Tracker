@@ -37,25 +37,25 @@
       </div>
       <!-- login form -->
     </div>
-    <div class="card bg-white w-full max-w-[424px] mx-auto mt-0 rounded-none shadow-none">
+    <form class="card bg-white w-full max-w-[424px] mx-auto mt-0 rounded-none shadow-none">
       <div class="card-body px-7 py-5">
         <fieldset class="fieldset">
           <label class="label text-black">Username</label>
-          <input type="text"
-            class="input h-11 w-full rounded-md border border-gray-300 bg-white text-base placeholder:text-[#94A3B8]"
-            placeholder="Enter Username" />
+          <input id="input-username" maxlength='5' type="text" autocomplete="username"
+            class="input h-11 w-full rounded-md border border-gray-300 bg-white text-base placeholder:text-[#94A3B8] "
+            value="admin" placeholder="Enter Username" />
           <a class="link link-hover text-[#4A00FF]">Default: admin</a>
           <label class="label">Password</label>
-          <input type="password"
+          <input id="input-password" maxlength='8' type="password" autocomplete="current-password"
             class="input h-11 w-full rounded-md border border-gray-300 bg-white text-base placeholder:text-[#94A3B8]"
-            placeholder="Enter Password" />
+            value="admin123" placeholder="Enter Password" />
           <div><a class="link text-[#4A00FF] link-hover">Password:admin123</a></div>
-          <button
+          <button id="signin-btn"
             class="btn btn-neutral rounded-[8px] border-0 bg-[#4A00FF] mt-4 h-11 text-base font-semibold normal-case">Sign
             in</button>
         </fieldset>
       </div>
-    </div>
+    </form>
     <div class="w-full max-w-[424px] mx-auto bg-white px-7 flex items-center py-2 text-[#64748B]">
       <div class="flex-1 border-t border-gray-300"></div>
       <span class="px-3 text-sm">OR</span>
@@ -73,7 +73,7 @@
       </div>
     </div>
 
-
+    <script src="./scripts/app.js"></script>
   </body>
 
 </html>
