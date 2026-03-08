@@ -1,28 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G I T | Login</title>
-  <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
 
-  <!-- tailwind + daisyui cdn -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G I T | Login</title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
 
-  <!-- google fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
-  <!-- font awesome cdn -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- tailwind + daisyui cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- stylecss -->
-  <link rel="stylesheet" href="Styles/style.css">
-</head>
-<body class="min-h-screen max-w-lg bg-base-200 mx-auto">
-  <h1>Hello,Lets start with GitHub Issues Tracker!</h1>
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
 
-</body>
+  <body class="min-h-screen max-w-lg bg-base-200 mx-auto">
+    <div class="logo flex justify-center w-[100] pt-8">
+      <img src="assets/github-logo.png" alt="GitHub Logo Image ">
+    </div>
+    <div class="title text-center  pt-6">
+      <h1 class="text-2xl font-bold">GitHub Issues Tracker</h1>
+      <p class="text-base text-[#64748B]">Sign in to manage your issues</p>
+    </div>
+    <!-- login form -->
+        <div class="card bg-base-100 w-full max-w-sm  shadow-xl mx-auto mt-6">
+          <div class="card-body">
+            <fieldset class="fieldset">
+              <label class="label text-black">Username</label>
+              <input type="text" class="input" placeholder="Enter Username" />
+              <a class="link link-hover text-[#4A00FF]">Default: admin</a>
+              <label class="label">Password</label>
+              <input type="password" class="input" placeholder="Enter Password" />
+              <div><a class="link text-[#4A00FF] link-hover">Password:admin123</a></div>
+              <button class="btn btn-neutral rounded-[8px] bg-[#4A00FF] mt-4">Sign in</button>
+            </fieldset>
+          </div>
+        </div>
+
+
+  </body>
+
 </html>
