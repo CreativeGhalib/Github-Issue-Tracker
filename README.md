@@ -15,7 +15,7 @@ map() creates a new array by transforming each item. filter() and forEach() resp
 An arrow function is a shorter way to write a function in JavaScript with =>, used for its cleanliness and is often used in small functions and callbacks.
 
 5️⃣ What are template literals?
-git commit -m"updated"
+
 
 
 Template literals are strings with backticks and it is much easier to add variables inside a string using ${}. Also they enable us to write multi-line text more clearly than by traditional quote marks.

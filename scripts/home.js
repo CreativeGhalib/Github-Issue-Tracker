@@ -84,7 +84,7 @@ const displayIssues = issues => {
         ${
           issue.status === 'open'
             ? `<img src="./assets/GitHub Issues Tracker_icon/CircleDashed.svg" class="w-7 h-7" alt="open" />`
-            : `<img src="./assets/GitHub Issues Tracker_icon/Ellipse 3.svg" class="w-7 h-7" style="filter: hue-rotate(200deg) saturate(0.6) brightness(0.8)" alt="closed" />`
+            : `<img src="./assets/Closed- Status .png" class="w-7 h-7" alt="closed" />`
         }
         <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded-full ${priorityColor}">${priority}</span>
       </div>
@@ -108,12 +108,14 @@ const displayIssues = issues => {
 // tab click e issues filter kori
 const filterIssue = type => {
   showLoader();
-  if (type === 'all') {
-    displayIssues(allIssues);
-  } else {
-    const filtered = allIssues.filter(issue => issue.status === type);
-    displayIssues(filtered);
-  }
+  setTimeout(() => {
+    if (type === 'all') {
+      displayIssues(allIssues);
+    } else {
+      const filtered = allIssues.filter(issue => issue.status === type);
+      displayIssues(filtered);
+    }
+  }, 300);
 };
 
 // 3 tab er data
@@ -165,54 +167,48 @@ const openModal = issue => {
   const priority = issue.priority ?? 'n/a';
   const priorityColor =
     priority === 'high'
-      ? 'bg-orange-100 text-orange-600'
+      ? 'bg-red-100 text-red-600'
       : priority === 'medium'
         ? 'bg-blue-100 text-blue-600'
         : priority === 'low'
           ? 'bg-green-100 text-green-600'
           : 'bg-gray-100 text-gray-500';
 
+  const isOpen = issue.status === 'open';
+  const statusBadge = isOpen
+    ? `<span class="text-xs font-semibold px-3 py-1 rounded-full border border-green-500 text-green-600 bg-green-50">Opened</span>`
+    : `<span class="text-xs font-semibold px-3 py-1 rounded-full border border-purple-500 text-purple-600 bg-purple-50">Closed</span>`;
+
+  const createdDate = new Date(issue.createdAt).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+
   modalWrapper.innerHTML = `
     <dialog class="modal modal-open">
-      <div class="modal-box max-w-2xl">
+      <div class="modal-box max-w-lg">
 
-        <div class="flex justify-between items-center mb-5">
-          <h3 class="font-bold text-lg">${issue.title}</h3>
-          <button onclick="closeModal()" class="btn btn-sm btn-ghost">✕</button>
+        <h3 class="font-bold text-lg mb-3">${issue.title}</h3>
+
+        <div class="flex items-center gap-2 mb-4 text-sm text-gray-500">
+          ${statusBadge}
+          <span>• Opened by <b>${issue.author ?? 'Unknown'}</b> • ${createdDate}</span>
         </div>
 
-        <p class="text-sm text-gray-500 mb-5">${issue.description ?? 'No description.'}</p>
+        <div class="flex flex-wrap gap-2 mb-4">${modalLabels}</div>
 
-        <div class="grid grid-cols-2 gap-4 text-sm mb-5">
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Author</span>
-            <span class="font-medium">${issue.author ?? 'Unknown'}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Priority</span>
-            <span class="text-xs font-bold uppercase px-2 py-0.5 rounded-full w-fit ${priorityColor}">${priority}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Created</span>
-            <span class="font-medium">${new Date(issue.createdAt).toLocaleDateString()}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Updated</span>
-            <span class="font-medium">${new Date(issue.updatedAt).toLocaleDateString()}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Assignee</span>
-            <span class="font-medium">${issue.assignee ?? 'Unassigned'}</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <span class="text-xs text-gray-400 uppercase tracking-wide">Issue #</span>
-            <span class="font-medium">${issue.id}</span>
-          </div>
-        </div>
+        <p class="text-sm text-gray-500 mb-6">${issue.description ?? 'No description.'}</p>
 
-        <div class="flex flex-col gap-2 mb-5">
-          <span class="text-xs text-gray-400 uppercase tracking-wide">Labels</span>
-          <div class="flex flex-wrap gap-2">${modalLabels}</div>
+        <div class="grid grid-cols-2 gap-4 text-sm mb-5 border border-gray-200 rounded-lg p-4 bg-gray-50">
+          <div class="flex flex-col gap-1">
+            <span class="text-xs text-gray-400">Assignee:</span>
+            <span class="font-semibold">${issue.assignee ?? 'Unassigned'}</span>
+          </div>
+          <div class="flex flex-col gap-1 items-end">
+            <span class="text-xs text-gray-400">Priority:</span>
+            <span class="text-xs font-bold uppercase px-3 py-1 rounded-full w-fit ${priorityColor}">${priority}</span>
+          </div>
         </div>
 
         <div class="modal-action">
