@@ -1,7 +1,7 @@
-// store all issues globally so i dont have to refetch on filter
+// all issues globally rakhlam, filter er time baarbaar api call na kore ekhane theke nibo
 let allIssues = [];
 
-// label name theke tailwind color class ber korbo
+// label er name diye color class ber kori
 const getLabelStyle = label => {
   const map = {
     bug: 'bg-red-100 text-red-600 border-red-300',
@@ -14,7 +14,7 @@ const getLabelStyle = label => {
   return map[label?.toLowerCase()] ?? 'bg-purple-100 text-purple-600 border-purple-300';
 };
 
-// bug and help wanted label er jonno icon show korechi
+// shudhu bug r help wanted er jonno icon ache baki gulo empty string
 const getLabelIcon = label => {
   const iconMap = {
     bug: `<img src="./assets/GitHub Issues Tracker_icon/BugDroid.svg" class="w-3 h-3 inline-block" alt="bug" />`,
@@ -23,11 +23,11 @@ const getLabelIcon = label => {
   return iconMap[label?.toLowerCase()] ?? '';
 };
 
-// loading spinner show/hide
+// spinner dekhano r lukano
 const showLoader = () => (document.getElementById('loader-section').style.display = 'block');
 const hideLoader = () => (document.getElementById('loader-section').style.display = 'none');
 
-// API theke shob issues fetch kori
+// page load hoile ei function e API call hoy
 const loadIssues = () => {
   showLoader();
   fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
@@ -38,7 +38,7 @@ const loadIssues = () => {
     });
 };
 
-// issues gulo card hisebe screen e dekhao
+// issues gulo card baniye DOM e rakhi
 const displayIssues = issues => {
   hideLoader();
   document.getElementById('issue-count').textContent = `${issues.length} Issues`;
@@ -52,12 +52,12 @@ const displayIssues = issues => {
   }
 
   for (let issue of issues) {
-    // open = green border, closed = purple border
+    // open hole green, closed hole purple top border
     const borderColor = issue.status === 'open' ? 'border-t-green-500' : 'border-t-purple-500';
 
     const priority = issue.priority ?? 'n/a';
 
-    // priority badge color
+    // high=orange medium=blue low=green
     const priorityColor =
       priority === 'high'
         ? 'bg-orange-100 text-orange-600'
@@ -105,7 +105,7 @@ const displayIssues = issues => {
   }
 };
 
-// tab click e issues filter kori
+// type diye filter kori, setTimeout na dile spinner dekhay na
 const filterIssue = type => {
   showLoader();
   setTimeout(() => {
@@ -125,7 +125,7 @@ const tabsData = [
   { id: 'btn-closed', label: 'Closed', type: 'closed' },
 ];
 
-// dynamically tab buttons banai and active state handle kori
+// tab buttons dynamically banai
 const renderTabs = () => {
   const container = document.getElementById('filter-container');
   container.innerHTML = '';
@@ -137,7 +137,7 @@ const renderTabs = () => {
     btn.className = `btn ${tab.type === 'all' ? 'btn-primary' : 'btn-ghost'}`;
 
     btn.addEventListener('click', () => {
-      // shob button theke active class sore dei
+      // age shob theke active sora, tarpor clicked ta active kora
       for (let t of tabsData) {
         document.getElementById(t.id).classList.remove('btn-primary');
         document.getElementById(t.id).classList.add('btn-ghost');
@@ -151,7 +151,7 @@ const renderTabs = () => {
   }
 };
 
-// card click e modal e issue details dekhao
+// card click e modal e full details
 const openModal = issue => {
   const modalWrapper = document.getElementById('modal-wrapper');
 
@@ -222,12 +222,12 @@ const openModal = issue => {
   `;
 };
 
-// modal band
+// modal er div khali korle modal chle jay
 const closeModal = () => {
   document.getElementById('modal-wrapper').innerHTML = '';
 };
 
-// search button click or Enter e API search call
+// search e click or enter dile API te query pathao
 document.getElementById('btn-search').addEventListener('click', () => {
   const query = document.getElementById('issue-search').value.trim();
 
@@ -246,7 +246,6 @@ document.getElementById('issue-search').addEventListener('keydown', e => {
   if (e.key === 'Enter') document.getElementById('btn-search').click();
 });
 
-// page load e tabs and issues render kora hoise ekhane,
-// ?xm er por kichu bepar clear korte hobe ssupport theke must
+// shuru korchi
 renderTabs();
 loadIssues();
