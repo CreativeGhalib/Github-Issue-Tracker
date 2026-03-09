@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G I T | Home</title>
+    <link rel="shortcut icon" href="assets/github-logo.png" type="image/x-icon">
+
+    <!-- tailwind + daisyui cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- stylecss -->
+    <link rel="stylesheet" href="Styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+  <body>
+
+    <!-- navbar -->
+    <header>
+      <nav>
+        <div class="flex gap-5 flex-col md:flex-row px-10 navbar shadow-sm bg-base-100">
+          <div class="gap-3 flex-1 sm:flex-row flex-col sm:justify-start justify-center flex items-center">
+            <div class="rounded-full w-10">
+              <img src="./assets/github-logo.png" alt="GitHub Issues Tracker Logo" />
+            </div>
+            <a class="text-xl btn-ghost btn">GitHub Issues Tracker</a>
+          </div>
+          <div class="gap-3 justify-between items-center flex">
+            <label class="input">
+              <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <path d="m21 21-4.3-4.3"></path>
+                </g>
+              </svg>
+              <input id="issue-search" type="search" required placeholder="Search issues..." />
+            </label>
+            <button id="btn-search" class="text-white btn bg-primary">Search</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- main -->
+    <main class="bg-[#F8FAFC]">
+      <section class="pt-24 mx-auto max-w-11/12 md:max-w-10/12 xl:max-w-8/12">
+
+        <!-- filter tabs -->
+        <div class="bg-white shadow-sm card card-body">
+          <div id="filter-container" class="gap-4 flex"></div>
+        </div>
+
+        <div>
+
+          <!-- issue summary -->
+          <section class="mt-10 bg-white card-body card shadow-sm">
+            <div class="justify-between gap-4 flex-col md:flex-row flex">
+              <div class="gap-2 flex">
+                <div class="p-2 rounded-full bg-purple-100 h-12 w-12">
+                  <img src="./assets/Aperture.png" alt="">
+                </div>
+                <div>
+                  <h4 id="issue-count" class="text-xl font-semibold">0 Issues</h4>
+                  <p class="text-[#64748B]">Track and manage your project issues</p>
+                </div>
+              </div>
+              <div class="gap-5 flex">
+                <div class="gap-2 justify-center flex items-center">
+                  <div class="status-success status"></div>
+                  <span>Open</span>
+                </div>
+                <div class="gap-2 justify-center flex items-center">
+                  <div class="status-primary status"></div>
+                  <span>Closed</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- issue cards -->
+          <section class="shadow-lg bg-[#ffffff30] p-8">
+
+            <!-- loading spinner -->
+            <section id="loader-section" class="py-30 text-center">
+              <span class="text-primary loading-spinner loading"></span>
+            </section>
+
+            <!-- cards grid -->
+            <section id="issue-wrapper" class="gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid">
+            </section>
+
+          </section>
+
+          <!-- modal -->
+          <div id="modal-wrapper"></div>
+
+        </div>
+
+      </section>
+    </main>
+
+    <!-- js -->
+    <script src="./scripts/home.js"></script>
+  </body>
+
+</html>

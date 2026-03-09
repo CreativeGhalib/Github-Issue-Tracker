@@ -9,7 +9,7 @@ document.getElementById('signin-btn').addEventListener('click', function (event)
   console.log(userNameValue, passwordValue);
   if (userNameValue == 'admin' && passwordValue == 'admin123') {
     alert('Login successful!');
-    window.location.assign('home.html');//eta korichi jate login successful hole home page e chole jay jeno
+    window.location.assign('home.html');//eta korichi jeno login successful hole home page e chole jabe
   } else {
     alert('Invalid username or password. Please try again.');
   }
